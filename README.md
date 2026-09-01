@@ -6,9 +6,23 @@ This repository documents an iterative, step-by-step build from raw data explora
 
 ---
 
-## 📌 Project Overview
+## 📌 Project Overview & Description
 
-Mental health among students is heavily influenced by digital habits and lifestyle factors. The goal of this project is to build an accurate predictive machine learning model and deploy it via a FastAPI backend coupled with a modern interactive frontend interface.
+Student mental health is deeply interconnected with daily lifestyle choices, screen time habits, and stress management. As digital consumption increases, understanding the exact quantitative relationship between social media engagement and mental well-being becomes crucial for students, educators, and health professionals.
+
+### 🎯 Problem Statement & Motivation
+This project addresses a **supervised regression problem**: predicting a student's continuous **`Mental_Health_Score`** (ranging from ~3 to ~10) based on their daily habits. 
+
+Key questions this project explores:
+- **Screen Time vs. Well-being:** Does higher average daily usage or frequent phone unlocks directly correlate with lower mental health scores?
+- **Restorative Factors:** To what extent do sleep hours and physical activity buffer against digital stress?
+- **Platform Specifics:** Do specific social media platforms (e.g., Instagram, Snapchat, TikTok) exhibit distinct impacts on stress levels and mental health?
+
+### 🚀 Key Project Objectives
+1. **End-to-End Machine Learning Pipeline:** Build a leakage-free preprocessing and predictive pipeline using `scikit-learn`.
+2. **Production-Ready FastAPI Backend:** Expose prediction models behind a high-performance REST API validated with `Pydantic`.
+3. **Interactive Web Interface:** Provide an accessible, responsive HTML/CSS/JS frontend for real-time predictions.
+4. **Cloud Deployment:** Host the complete full-stack web application live on Render.
 
 - **Target Variable:** `Mental_Health_Score` (Continuous score from ~3 to ~10 — **Regression Task**)
 - **Dataset:** `5,000` student entries with 13 features across demographics, usage habits, and lifestyle metrics.
