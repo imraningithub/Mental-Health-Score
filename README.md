@@ -49,12 +49,12 @@ This project follows a 5-phase blueprint to transition from data science explora
 
 - [ ] **Phase 01: Machine Learning Model Build** *(In Progress)*
   - [x] Data Loading & Structure Overview
-  - [ ] Exploratory Data Analysis (EDA) & Visualizations
-  - [ ] Data Cleaning & Outlier Removal
-  - [ ] Skewness Check & Feature Transformations
-  - [ ] Feature Engineering & Encoding Strategy
-  - [ ] Train/Test Split (Preventing Data Leakage)
-  - [ ] Preprocessing Pipeline (`ColumnTransformer`)
+  - [x] Exploratory Data Analysis (EDA) & Visualizations
+  - [x] Data Cleaning & Outlier Removal
+  - [x] Skewness Check & Feature Transformations
+  - [x] Feature Engineering & Encoding Strategy
+  - [x] Train/Test Split (Preventing Data Leakage)
+  - [x] Preprocessing Pipeline (`ColumnTransformer`)
   - [ ] Model Selection & Baseline Training
   - [ ] Hyperparameter Tuning (`RandomizedSearchCV`)
   - [ ] Model Evaluation & Feature Importance Analysis
@@ -101,6 +101,19 @@ This project follows a 5-phase blueprint to transition from data science explora
 
 ---
 
+## 🔍 Preprocessing & Feature Engineering Highlights
+
+- **Data Cleaning:** Identified invalid negative physical activity values (`-0.4`) and applied `clip(lower=0)` to preserve row integrity.
+- **Categorical Optimization:** Engineered `Grouped_Country` by aggregating 111 raw countries down to the top 10 categories + "Other", preventing high-cardinality sparse matrix issues.
+- **Skewness & Transformations:** Detected right-skewness in `Study_Hours` and applied logarithmic transformation (`np.log1p`).
+- **Modular Preprocessing Pipeline:** Built a leakage-free `ColumnTransformer` combining:
+  - Log transformer + `StandardScaler` for skewed features (`Study_Hours`).
+  - `StandardScaler` for standard numerical features (`Age`, `Avg_Daily_Usage_Hours`, `Daily_Unlocks`, `Physical_Activity_Hours`, `Sleep_Hours_Per_Night`).
+  - `OrdinalEncoder` with explicit hierarchy (`Low` < `Medium` < `High` < `Very High`) for `Stress_Level`.
+  - `OneHotEncoder(handle_unknown="ignore")` for nominal features (`Gender`, `Academic_Level`, `Most_Used_Platform`, `Purpose_Of_Use`, `Grouped_Country`).
+
+---
+
 ## 📁 Repository Structure
 
 ```
@@ -126,7 +139,7 @@ This project follows a 5-phase blueprint to transition from data science explora
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/<your-username>/Mental-Health-Score.git
+   git clone https://github.com/imraningithub/Mental-Health-Score.git
    cd Mental-Health-Score
    ```
 
@@ -151,8 +164,10 @@ This project follows a 5-phase blueprint to transition from data science explora
 ## 📈 Daily Progress Log
 
 - **Day 1:** Project repository initialized. Created Master Roadmap, `.gitignore`, and detailed `README.md`. Loaded raw dataset and began initial structure analysis in `ML_Project.ipynb`.
+- **Day 2:** Completed exploratory data analysis (EDA), data cleaning (invalid value clipping), country grouping feature engineering (111 -> 11 categories), log transformation of skewed features, and built a leak-proof `ColumnTransformer` preprocessing pipeline.
 
 ---
 
 ## 📄 License
 This project is open-source and available under the [MIT License](LICENSE).
+
