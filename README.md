@@ -47,7 +47,7 @@ This project follows a 5-phase blueprint to transition from data science explora
 
 ### 📋 Phase Breakdown
 
-- [ ] **Phase 01: Machine Learning Model Build** *(In Progress)*
+- [ ] **Phase 01: Machine Learning Model Build** *(Near Completion)*
   - [x] Data Loading & Structure Overview
   - [x] Exploratory Data Analysis (EDA) & Visualizations
   - [x] Data Cleaning & Outlier Removal
@@ -55,9 +55,9 @@ This project follows a 5-phase blueprint to transition from data science explora
   - [x] Feature Engineering & Encoding Strategy
   - [x] Train/Test Split (Preventing Data Leakage)
   - [x] Preprocessing Pipeline (`ColumnTransformer`)
-  - [ ] Model Selection & Baseline Training
-  - [ ] Hyperparameter Tuning (`RandomizedSearchCV`)
-  - [ ] Model Evaluation & Feature Importance Analysis
+  - [x] Model Selection & Baseline Training (Linear Regression & Random Forest)
+  - [x] Hyperparameter Tuning (`RandomizedSearchCV` for Random Forest)
+  - [x] Model Evaluation & Performance Comparison (R², MAE, RMSE)
   - [ ] Pipeline Serialization (`joblib.dump()`)
 
 - [ ] **Phase 02: FastAPI Service Layer** *(Upcoming)*
@@ -111,6 +111,7 @@ This project follows a 5-phase blueprint to transition from data science explora
   - `StandardScaler` for standard numerical features (`Age`, `Avg_Daily_Usage_Hours`, `Daily_Unlocks`, `Physical_Activity_Hours`, `Sleep_Hours_Per_Night`).
   - `OrdinalEncoder` with explicit hierarchy (`Low` < `Medium` < `High` < `Very High`) for `Stress_Level`.
   - `OneHotEncoder(handle_unknown="ignore")` for nominal features (`Gender`, `Academic_Level`, `Most_Used_Platform`, `Purpose_Of_Use`, `Grouped_Country`).
+- **Model Training & Hyperparameter Tuning:** Trained Linear Regression baseline, default Random Forest Regressor, and performed `RandomizedSearchCV` for hyperparameter optimization, evaluating and consolidating metrics ($R^2$, MAE, RMSE) across models.
 
 ---
 
@@ -122,6 +123,7 @@ This project follows a 5-phase blueprint to transition from data science explora
 │   └── Student Social Media And Mental Health Impact.csv
 ├── Roadmap/
 │   └── ML Project.html              # Interactive HTML project blueprint
+├── CV_PROJECT_SUMMARY.md             # Comprehensive CV project summary document
 ├── ML_Project.ipynb                  # Main Jupyter Notebook for ML workflow
 ├── .gitignore                        # Git ignore rules
 └── README.md                         # Project documentation
@@ -164,10 +166,11 @@ This project follows a 5-phase blueprint to transition from data science explora
 ## 📈 Daily Progress Log
 
 - **Day 1:** Project repository initialized. Created Master Roadmap, `.gitignore`, and detailed `README.md`. Loaded raw dataset and began initial structure analysis in `ML_Project.ipynb`.
-- **Day 2:** Completed exploratory data analysis (EDA), data cleaning (invalid value clipping), country grouping feature engineering (111 -> 11 categories), log transformation of skewed features, and built a leak-proof `ColumnTransformer` preprocessing pipeline.
+- **Day 2:** Completed exploratory data analysis (EDA), data cleaning, country feature engineering, log transformations, leak-proof `ColumnTransformer` preprocessing pipeline, model selection (Linear Regression & Random Forest), hyperparameter tuning via `RandomizedSearchCV`, and model performance evaluation & comparison matrix. Added project CV summary documentation.
 
 ---
 
 ## 📄 License
 This project is open-source and available under the [MIT License](LICENSE).
+
 
