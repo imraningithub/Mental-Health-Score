@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindPulse — Machine Learning Mental Health Predictor</title>
+    <meta name="description" content="Predict and analyze student mental health scores based on lifestyle, social media usage, academic pressure, and stress levels using machine learning.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-glow">
+        <div class="glow-sphere sphere-1"></div>
+        <div class="glow-sphere sphere-2"></div>
+        <div class="glow-sphere sphere-3"></div>
+    </div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="hero-header">
+            <div class="badge">
+                <span class="badge-dot"></span>
+                <span>Machine Learning Insights Engine</span>
+            </div>
+            <h1>MindPulse <span class="gradient-text">Predictor</span></h1>
+            <p class="subtitle">Enter your lifestyle, study habits, and social media patterns to calculate your predicted Mental Health Index powered by Machine Learning.</p>
+        </header>
+
+        <main class="main-content">
+            <form id="prediction-form" class="glass-card form-card">
+                
+                <!-- Section 1: Demographics -->
+                <div class="form-section">
+                    <div class="section-title">
+                        <div class="step-num">01</div>
+                        <div>
+                            <h2>Demographic Profile</h2>
+                            <p>Basic personal background information</p>
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <!-- Age -->
+                        <div class="form-group">
+                            <div class="label-row">
+                                <label for="age">Age</label>
+                                <span class="val-badge" id="age-val">20 yrs</span>
+                            </div>
+                            <input type="range" id="age" name="Age" min="11" max="70" value="20" class="custom-slider">
+                            <div class="range-labels">
+                                <span>11 yrs</span>
+                                <span>70 yrs</span>
+                            </div>
+                        </div>
+
+                        <!-- Gender -->
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <div class="segmented-control" id="gender-group">
+                                <button type="button" class="segment-btn active" data-value="Male">Male</button>
+                                <button type="button" class="segment-btn" data-value="Female">Female</button>
+                            </div>
+                            <input type="hidden" id="gender" name="Gender" value="Male">
+                        </div>
+                    </div>
+
+                    <div class="grid-2 mt-4">
+                        <!-- Country -->
+                        <div class="form-group">
+                            <label for="country">Country of Residence</label>
+                            <div class="select-wrapper">
+                                <select id="country" name="Country" class="custom-select">
+                                    <option value="USA">🇺🇸 United States</option>
+                                    <option value="India">🇮🇳 India</option>
+                                    <option value="Canada">🇨🇦 Canada</option>
+                                    <option value="UK">🇬🇧 United Kingdom</option>
+                                    <option value="Australia">🇦🇺 Australia</option>
+                                    <option value="Germany">🇩🇪 Germany</option>
+                                    <option value="Mexico">🇲🇽 Mexico</option>
+                                    <option value="Turkey">🇹🇷 Turkey</option>
+                                    <option value="France">🇫🇷 France</option>
+                                    <option value="Other">🌐 Other Country</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Academic Level -->
+                        <div class="form-group">
+                            <label>Academic Level</label>
+                            <div class="chip-group" id="academic-group">
+                                <button type="button" class="chip-btn" data-value="High School">High School</button>
+                                <button type="button" class="chip-btn active" data-value="Undergraduate">Undergraduate</button>
+                                <button type="button" class="chip-btn" data-value="Graduate">Graduate</button>
+                            </div>
+                            <input type="hidden" id="academic_level" name="Academic_Level" value="Undergraduate">
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divider">
+
+                <!-- Section 2: Digital & Social Habits -->
+                <div class="form-section">
+                    <div class="section-title">
+                        <div class="step-num">02</div>
+                        <div>
+                            <h2>Digital Engagement</h2>
+                            <p>Screen time, platform usage, and device interaction</p>
+                        </div>
+                    </div>
+
+                    <!-- Most Used Platform -->
+                    <div class="form-group">
+                        <label>Primary Social Media Platform</label>
+                        <div class="platform-grid" id="platform-grid">
+                            <button type="button" class="platform-card active" data-value="Instagram">
+                                <span class="icon">📸</span>
+                                <span class="name">Instagram</span>
+                            </button>
+                            <button type="button" class="platform-card" data-value="YouTube">
+                                <span class="icon">▶️</span>
+                                <span class="name">YouTube</span>
+                            </button>
+                            <button type="button" class="platform-card" data-value="TikTok">
+                                <span class="icon">🎵</span>
+                                <span class="name">TikTok</span>
+                            </button>
+                            <button type="button" class="platform-card" data-value="WhatsApp">
+                                <span class="icon">💬</span>
+                                <span class="name">WhatsApp</span>
+                            </button>
+                            <button type="button" class="platform-card" data-value="LinkedIn">
+                                <span class="icon">💼</span>
+                                <span class="name">LinkedIn</span>
+                            </button>
+                            <button type="button" class="platform-card" data-value="Twitter">
+                                <span class="icon">🐦</span>
+                                <span class="name">Twitter</span>
+                            </button>
+                            <button type="button" class="platform-card" data-value="Facebook">
+                                <span class="icon">👥</span>
+                                <span class="name">Facebook</span>
+                            </button>
+                            <button type="button" class="platform-card" data-value="Snapchat">
+                                <span class="icon">👻</span>
+                                <span class="name">Snapchat</span>
+                            </button>
+                            <button type="button" class="platform-card" data-value="WeChat">
+                                <span class="icon">🌐</span>
+                                <span class="name">WeChat</span>
+                            </button>
+                            <button type="button" class="platform-card" data-value="LINE">
+                                <span class="icon">📲</span>
+                                <span class="name">LINE</span>
+                            </button>
+                        </div>
+                        <input type="hidden" id="most_used_platform" name="Most_Used_Platform" value="Instagram">
+                    </div>
+
+                    <div class="grid-2 mt-4">
+                        <!-- Purpose of Use -->
+                        <div class="form-group">
+                            <label>Primary Purpose of Use</label>
+                            <div class="chip-group grid-2-chips" id="purpose-group">
+                                <button type="button" class="chip-btn active" data-value="Entertainment">Entertainment</button>
+                                <button type="button" class="chip-btn" data-value="Education">Education</button>
+                                <button type="button" class="chip-btn" data-value="Networking">Networking</button>
+                                <button type="button" class="chip-btn" data-value="News">News</button>
+                            </div>
+                            <input type="hidden" id="purpose_of_use" name="Purpose_Of_Use" value="Entertainment">
+                        </div>
+
+                        <!-- Daily Usage Hours -->
+                        <div class="form-group">
+                            <div class="label-row">
+                                <label for="avg_usage">Avg. Daily Social Media Usage</label>
+                                <span class="val-badge" id="usage-val">4.5 hrs</span>
+                            </div>
+                            <input type="range" id="avg_usage" name="Avg_Daily_Usage_Hours" min="0" max="18" step="0.5" value="4.5" class="custom-slider">
+                            <div class="range-labels">
+                                <span>0 hrs</span>
+                                <span>18 hrs</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Daily Unlocks -->
+                    <div class="form-group mt-4">
+                        <div class="label-row">
+                            <label for="daily_unlocks">Daily Phone Unlocks</label>
+                            <span class="val-badge" id="unlocks-val">80 unlocks</span>
+                        </div>
+                        <input type="range" id="daily_unlocks" name="Daily_Unlocks" min="0" max="300" step="5" value="80" class="custom-slider">
+                        <div class="range-labels">
+                            <span>0 unlocks</span>
+                            <span>300 unlocks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divider">
+
+                <!-- Section 3: Lifestyle & Wellness -->
+                <div class="form-section">
+                    <div class="section-title">
+                        <div class="step-num">03</div>
+                        <div>
+                            <h2>Lifestyle & Daily Balance</h2>
+                            <p>Study workload, sleep quality, and physical movement</p>
+                        </div>
+                    </div>
+
+                    <div class="grid-3">
+                        <!-- Study Hours -->
+                        <div class="form-group">
+                            <div class="label-row">
+                                <label for="study_hours">Daily Study Hours</label>
+                                <span class="val-badge" id="study-val">5.0 hrs</span>
+                            </div>
+                            <input type="range" id="study_hours" name="Study_Hours" min="0" max="16" step="0.5" value="5.0" class="custom-slider">
+                            <div class="range-labels">
+                                <span>0h</span>
+                                <span>16h</span>
+                            </div>
+                        </div>
+
+                        <!-- Physical Activity -->
+                        <div class="form-group">
+                            <div class="label-row">
+                                <label for="physical_activity">Physical Activity</label>
+                                <span class="val-badge" id="activity-val">1.5 hrs</span>
+                            </div>
+                            <input type="range" id="physical_activity" name="Physical_Activity_Hours" min="0" max="10" step="0.5" value="1.5" class="custom-slider">
+                            <div class="range-labels">
+                                <span>0h</span>
+                                <span>10h</span>
+                            </div>
+                        </div>
+
+                        <!-- Sleep Hours -->
+                        <div class="form-group">
+                            <div class="label-row">
+                                <label for="sleep_hours">Sleep Per Night</label>
+                                <span class="val-badge" id="sleep-val">7.0 hrs</span>
+                            </div>
+                            <input type="range" id="sleep_hours" name="Sleep_Hours_Per_Night" min="2" max="14" step="0.5" value="7.0" class="custom-slider">
+                            <div class="range-labels">
+                                <span>2h</span>
+                                <span>14h</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divider">
+
+                <!-- Section 4: Stress Perception -->
+                <div class="form-section">
+                    <div class="section-title">
+                        <div class="step-num">04</div>
+                        <div>
+                            <h2>Self-Reported Stress Level</h2>
+                            <p>Perceived psychological pressure</p>
+                        </div>
+                    </div>
+
+                    <div class="stress-grid" id="stress-grid">
+                        <button type="button" class="stress-card" data-value="Low">
+                            <div class="stress-indicator low"></div>
+                            <span class="stress-title">Low</span>
+                            <span class="stress-desc">Calm, manageable routine</span>
+                        </button>
+                        <button type="button" class="stress-card active" data-value="Medium">
+                            <div class="stress-indicator medium"></div>
+                            <span class="stress-title">Medium</span>
+                            <span class="stress-desc">Moderate academic workload</span>
+                        </button>
+                        <button type="button" class="stress-card" data-value="High">
+                            <div class="stress-indicator high"></div>
+                            <span class="stress-title">High</span>
+                            <span class="stress-desc">Significant ongoing pressure</span>
+                        </button>
+                        <button type="button" class="stress-card" data-value="Very High">
+                            <div class="stress-indicator vhigh"></div>
+                            <span class="stress-title">Very High</span>
+                            <span class="stress-desc">Overwhelming exhaustion</span>
+                        </button>
+                    </div>
+                    <input type="hidden" id="stress_level" name="Stress_Level" value="Medium">
+                </div>
+
+                <!-- Submit Action -->
+                <div class="submit-wrapper">
+                    <button type="submit" id="submit-btn" class="submit-btn">
+                        <span class="btn-text">Generate Machine Learning Prediction</span>
+                        <span class="btn-icon">→</span>
+                        <div class="btn-spinner hidden"></div>
+                    </button>
+                </div>
+            </form>
+
+            <!-- Results Section (Initially Hidden) -->
+            <section id="results-card" class="glass-card result-card hidden">
+                <div class="result-header">
+                    <div class="result-badge">Machine Learning Analysis Complete</div>
+                    <h2>Predicted Mental Health Index</h2>
+                    <p>Based on machine learning regression over behavioral patterns</p>
+                </div>
+
+                <div class="score-container">
+                    <div class="gauge-wrapper">
+                        <svg class="gauge-svg" viewBox="0 0 200 200">
+                            <circle class="gauge-bg" cx="100" cy="100" r="85"></circle>
+                            <circle class="gauge-fill" id="gauge-fill" cx="100" cy="100" r="85" stroke-dasharray="534" stroke-dashoffset="534"></circle>
+                        </svg>
+                        <div class="gauge-center">
+                            <span class="score-number" id="score-val">0.00</span>
+                            <span class="score-max">/ 10</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="interpretation-box" id="interpretation-box">
+                    <h3 id="interp-title">Calculating...</h3>
+                    <p id="interp-text">Analyzing your lifestyle inputs...</p>
+                </div>
+
+                <div class="insights-grid">
+                    <div class="insight-item">
+                        <span class="icon">😴</span>
+                        <div>
+                            <h4>Sleep Assessment</h4>
+                            <p id="insight-sleep">-</p>
+                        </div>
+                    </div>
+                    <div class="insight-item">
+                        <span class="icon">📱</span>
+                        <div>
+                            <h4>Digital Balance</h4>
+                            <p id="insight-digital">-</p>
+                        </div>
+                    </div>
+                    <div class="insight-item">
+                        <span class="icon">🏃‍♂️</span>
+                        <div>
+                            <h4>Physical Wellbeing</h4>
+                            <p id="insight-activity">-</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-actions">
+                    <button type="button" id="recalculate-btn" class="secondary-btn">Recalculate Inputs</button>
+                </div>
+            </section>
+        </main>
+
+        <footer class="app-footer">
+            <p>Powered by FastAPI & Machine Learning | Designed with Anti-Slop UI Taste</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

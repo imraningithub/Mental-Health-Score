@@ -2,6 +2,7 @@ import joblib
 import pandas as pd
 from pydantic import BaseModel, Field
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from typing import Literal
 
 
@@ -29,9 +30,23 @@ class PredictionResponse(BaseModel):
 
 
 
-model = joblib.load("Mental_Health_Model.pkl")
+import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "..", "Mental_Health_Model.pkl")
+if not os.path.exists(MODEL_PATH):
+    MODEL_PATH = os.path.join(BASE_DIR, "Mental_Health_Model.pkl")
+
+model = joblib.load(MODEL_PATH)
 top_countries = ['Other','India','USA','Canada','Australia','UK','Germany','Mexico','Turkey','France']
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 def greet():
