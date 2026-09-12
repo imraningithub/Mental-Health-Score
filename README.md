@@ -5,6 +5,7 @@
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![Pydantic v2](https://img.shields.io/badge/Pydantic-v2-E92063?style=flat&logo=pydantic&logoColor=white)](https://docs.pydantic.dev/)
+[![Netlify Status](https://img.shields.io/badge/Netlify-Deployed-00C7B7?style=flat&logo=netlify&logoColor=white)](https://mind-pulse-predictor.netlify.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ---
@@ -19,7 +20,7 @@ This repository demonstrates the complete lifecycle of a data science & software
 1. **End-to-End Machine Learning Pipeline:** Build a leakage-free preprocessing and predictive regression pipeline using `scikit-learn`.
 2. **Production-Ready FastAPI Backend:** Expose prediction models behind a high-performance REST API validated with `Pydantic` v2 and CORS middleware.
 3. **High-Taste Web Frontend:** Provide an interactive, dark-mode glassmorphism HTML/CSS/JS frontend for real-time predictions with animated SVG gauge displays and contextual health insights.
-4. **Cloud Deployment Ready:** Host the complete full-stack web application live on cloud platforms *(Phase 05)*.
+4. **Netlify Cloud Deployment:** Host the complete full-stack web application live at [https://mind-pulse-predictor.netlify.app](https://mind-pulse-predictor.netlify.app).
 
 ---
 
@@ -70,9 +71,9 @@ This project follows a 5-phase blueprint to transition from data science explora
   - [x] API Integration (`fetch()` in `app.js`)
   - [x] Calibrated 0–10 Score Gauge & Dynamic Health Insights
 
-- [ ] **Phase 05: Cloud Deployment** *(Upcoming)*
+- [x] **Phase 05: Cloud Deployment** *(Completed)*
   - [x] GitHub Repository Integration & Renaming to `Mind-Pulse-Predictor`
-  - [ ] Render / Vercel Web Service Setup & Environment Config
+  - [x] Netlify Cloud Deployment & Live Web Application ([https://mind-pulse-predictor.netlify.app](https://mind-pulse-predictor.netlify.app))
 
 ---
 
