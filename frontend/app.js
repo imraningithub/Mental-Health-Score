@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const API_URL = window.location.protocol === 'file:'
-        ? 'http://127.0.0.1:8000/predict'
-        : '/predict';
+    // Configurable API URL: Use window.BACKEND_API_URL if set, or fallback to localhost
+    const API_URL = window.BACKEND_API_URL || 'http://127.0.0.1:8000/predict';
 
     // -------------------------------------------------------------
     // Live Range Slider Value Syncing
